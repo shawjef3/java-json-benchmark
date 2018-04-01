@@ -117,4 +117,9 @@ public class Deserialization extends JsonBench {
         return com.jsoniter.JsonIterator.deserialize(JSON_SOURCE().nextByteArray(), JSON_SOURCE().pojoType());
     }
 
+    @Override
+    public Object jsoniterScala() throws Exception {
+        return JSON_SOURCE().provider().jsoniterScala().deserialize(JSON_SOURCE().nextInputStream());
+    }
+
 }

@@ -6,6 +6,8 @@ import com.bluelinelabs.logansquare.LoganSquare;
 import com.github.fabienrenaud.jjb.JsonBench;
 import com.github.fabienrenaud.jjb.JsonUtils;
 import com.github.fabienrenaud.jjb.data.JsonSource;
+import com.github.fabienrenaud.jjb.model.ScalaClients;
+import com.github.fabienrenaud.jjb.model.ScalaUsers;
 import okio.BufferedSink;
 import okio.Okio;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -143,6 +145,14 @@ public class Serialization extends JsonBench {
     public Object jsoniter() throws Exception {
         ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
         com.jsoniter.output.JsonStream.serialize(JSON_SOURCE().nextPojo(), baos);
+        return baos;
+    }
+
+    @Benchmark
+    @Override
+    public Object jsoniterScala() throws Exception {
+        ByteArrayOutputStream baos = JsonUtils.byteArrayOutputStream();
+        JSON_SOURCE().provider().jsoniterScala().serialize(baos, JSON_SOURCE().nextPojo());
         return baos;
     }
 

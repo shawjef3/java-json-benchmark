@@ -8,6 +8,7 @@ import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
+import com.github.fabienrenaud.jjb.model.ScalaUsers$;
 import com.github.fabienrenaud.jjb.model.Users;
 import com.google.gson.Gson;
 import com.owlike.genson.Genson;
@@ -142,6 +143,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public com.squareup.moshi.JsonAdapter<Users> moshi() {
         return moshi;
+    }
+
+    @Override
+    public JsoninterScalaProvider<Users> jsoniterScala() {
+        return ScalaUsers$.MODULE$;
     }
 
     private static final ThreadLocal<flexjson.JSONSerializer> FLEXJSON_SER = new ThreadLocal<flexjson.JSONSerializer>() {

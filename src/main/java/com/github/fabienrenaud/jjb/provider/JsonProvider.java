@@ -49,4 +49,7 @@ public interface JsonProvider<T> {
     jodd.json.JsonSerializer joddSer();
 
     com.squareup.moshi.JsonAdapter<T> moshi();
+
+    JsoninterScalaProvider<T> jsoniterScala();
+
 }

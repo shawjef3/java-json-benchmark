@@ -102,4 +102,8 @@ public abstract class JsonBench {
     public Object minimaljson() throws Exception {
         return null;
     }
+
+    public Object jsoniterScala() throws Exception {
+        return null;
+    }
 }

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.github.fabienrenaud.jjb.model.Clients;
+import com.github.fabienrenaud.jjb.model.ScalaClients$;
 import com.google.gson.*;
 import com.owlike.genson.Context;
 import com.owlike.genson.Converter;
@@ -237,6 +238,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public com.squareup.moshi.JsonAdapter<Clients> moshi() {
         return moshi;
+    }
+
+    @Override
+    public JsoninterScalaProvider<Clients> jsoniterScala() {
+        return ScalaClients$.MODULE$;
     }
 
     private static final ThreadLocal<JSONSerializer> FLEXJSON_SER = new ThreadLocal<JSONSerializer>() {

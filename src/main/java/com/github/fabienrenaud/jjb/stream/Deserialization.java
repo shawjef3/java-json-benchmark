@@ -94,4 +94,10 @@ public class Deserialization extends JsonBench {
             return JSON_SOURCE().streamDeserializer().moshi(jr);
         }
     }
+
+    @Benchmark
+    @Override
+    public Object jsoniterScala() throws Exception {
+        return JSON_SOURCE().provider().jsoniterScala().deserialize(JSON_SOURCE().nextInputStream());
+    }
 }

@@ -128,4 +128,9 @@ public class Serialization extends JsonBench {
         sink.close();
         return baos;
     }
+
+    @Override
+    public Object jsoniterScala() throws Exception {
+        return JSON_SOURCE().streamSerializer().orgjson(JSON_SOURCE().nextPojo()).toString();
+    }
 }
